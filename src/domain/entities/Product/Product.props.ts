@@ -4,7 +4,7 @@ import type { UniqueEntityId } from "../../value-objects/UniqueEntityId";
 import type { Category } from "../Category/Category";
 
 export interface ProductProps {
-  id: UniqueEntityId;
+  readonly id: UniqueEntityId;
   name: Name;
   description: string;
   price: Money;
@@ -12,5 +12,5 @@ export interface ProductProps {
   stock: number;
   images: string[];
   createdAt: Date;
-  updatedAt: Date;
+  updatedAt: Date;  
 }

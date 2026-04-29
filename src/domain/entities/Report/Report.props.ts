@@ -1,18 +1,17 @@
 import type { Money } from "../../value-objects/Money";
 import type { UniqueEntityId } from "../../value-objects/UniqueEntityId";
+import type { ProductMetrics } from "./ProductsMetrics";
 
 export interface ReportProps {
   id: UniqueEntityId;
   title: string;
   description: string;
-  productsMetrics: {
-    productId: UniqueEntityId;
-    name: string;
-    sold: number;
-  }[];
+  productsMetrics: ProductMetrics[];
+  period: {
+    startDate: Date;
+    endDate: Date;
+  }
   totalValue: Money;
-  startDate: Date;
-  endDate: Date;
   createdAt: Date;
   updatedAt: Date;
 }

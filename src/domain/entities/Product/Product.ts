@@ -2,9 +2,10 @@ import type { Category } from "../Category/Category";
 import type { Money } from "../../value-objects/Money";
 import { Name } from "../../value-objects/Name";
 import type { ProductProps } from "./Product.props";
+import type { UniqueEntityId } from "../../value-objects/UniqueEntityId";
 
 export class Product {
-  private readonly props: ProductProps;
+  private props: ProductProps;
 
   private constructor(props: ProductProps) {
     this.props = props;
@@ -14,7 +15,10 @@ export class Product {
     return new Product(props);
   }
 
-  public getDisplayInfo(): Omit<ProductProps, "createdAt" | "updatedAt" | "stock"> {
+  public getDisplayInfo(): Omit<
+    ProductProps,
+    "createdAt" | "updatedAt" | "stock"
+  > {
     return {
       id: this.props.id,
       name: this.props.name,
@@ -58,10 +62,18 @@ export class Product {
     this.props.images = images;
   }
 
-  public getTimeStamps(): { createdAt: Date, updatedAt: Date } {
+  public getTimeStamps(): { createdAt: Date; updatedAt: Date } {
     return {
       createdAt: this.props.createdAt,
       updatedAt: this.props.updatedAt,
-    }
+    };
+  }
+
+  public getPrice(): Money {
+    return this.props.price;
+  }
+
+  public getId(): UniqueEntityId {
+    return this.props.id;
   }
 }
