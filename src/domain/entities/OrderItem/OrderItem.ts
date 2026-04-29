@@ -41,4 +41,8 @@ export class OrderItem {
   public getUnitPrice(): Money {
     return this.props.unitPrice;
   }
+
+  public getSubtotal(): Money {
+    return this.props.unitPrice.multiply(this.props.quantity);
+  }
 }

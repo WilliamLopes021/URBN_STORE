@@ -2,8 +2,8 @@ import type { Money } from "../../value-objects/Money";
 import type { UniqueEntityId } from "../../value-objects/UniqueEntityId";
 
 export interface OrderItemProps {
-  id: UniqueEntityId;
-  productId: UniqueEntityId;
+  readonly id: UniqueEntityId;
+  readonly productId: UniqueEntityId;
   quantity: number;
   unitPrice: Money;
 }

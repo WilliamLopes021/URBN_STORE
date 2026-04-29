@@ -11,4 +11,5 @@ export interface OrderProps {
   status: OrderStatus;
   createdAt: Date;
   updatedAt: Date;
+  paidAt: Date | null;
 }

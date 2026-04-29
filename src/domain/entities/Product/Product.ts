@@ -3,6 +3,7 @@ import type { Money } from "../../value-objects/Money";
 import { Name } from "../../value-objects/Name";
 import type { ProductProps } from "./Product.props";
 import type { UniqueEntityId } from "../../value-objects/UniqueEntityId";
+import { BusinessRuleError } from "../../errors/BusinessRuleError";
 
 export class Product {
   private props: ProductProps;
@@ -54,7 +55,7 @@ export class Product {
   }
 
   public removeStock(quantity: number): void {
-    if (this.props.stock < quantity) throw new Error("Estoque insuficiente");
+    if (this.props.stock < quantity) throw new BusinessRuleError("Estoque insuficiente");
     this.props.stock -= quantity;
   }
 

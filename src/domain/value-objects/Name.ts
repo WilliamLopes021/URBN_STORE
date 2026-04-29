@@ -1,3 +1,5 @@
+import { ValidationError } from "../errors/ValidationError";
+
 export class Name {
   public value: string;
 
@@ -13,7 +15,7 @@ export class Name {
   private static validate(value: string): void {
     const inputValue = value.trim();
     if (inputValue.length < 3 || inputValue.length > 100) {
-      throw new Error("Invalid name");
+      throw new ValidationError("Invalid name");
     }
   }
 

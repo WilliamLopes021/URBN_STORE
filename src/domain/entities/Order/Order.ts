@@ -37,6 +37,10 @@ export class Order {
     this.props.items.filter((i) => !i.getId().equals(item.getId()));
   }
 
+  public setTotal(total: Money): void {
+    this.props.total = total;
+  }
+
   public getItems(): OrderItem[] {
     return this.props.items;
   }
@@ -54,6 +58,10 @@ export class Order {
 
   public getStatus(): OrderStatus {
     return this.props.status;
+  }
+
+  public getPaidAt(): Date | null {
+    return this.props.paidAt;
   }
 
   public getTimeStamps(): { createdAt: Date; updatedAt: Date } {
