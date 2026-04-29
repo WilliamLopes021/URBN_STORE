@@ -7,7 +7,6 @@ export interface AdminProps {
   id: UniqueEntityId;
   name: Name;
   email: Email;
-  secret: string;
   password: Password;
   profilePicture?: string;
   createdAt: Date;
