@@ -9,7 +9,7 @@ export interface OrderProps {
   items: OrderItem[];
   total: Money;
   status: OrderStatus;
+  paidAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
-  paidAt: Date | null;
 }

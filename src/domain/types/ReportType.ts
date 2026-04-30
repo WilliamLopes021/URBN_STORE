@@ -1,11 +1,11 @@
-import type { Money } from "../../value-objects/Money";
 import type { ProductMetrics } from "./ProductsMetrics";
+import type { Money } from "../value-objects/Money";
 
-export interface ReportProps {
+export interface ReportType {
   productsMetrics: ProductMetrics[];
   period: {
     startDate: Date;
     endDate: Date;
-  }
+  };
   totalValue: Money;
 }
