@@ -80,3 +80,5 @@ types/
 ### 3. Domínio (regras de negócio)
 
 ### 4. Infraestrutura (detalhes técnicos)
+
+## Entidades e Relacionamentos

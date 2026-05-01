@@ -2,7 +2,7 @@ import type { Order } from "../entities/Order/Order";
 import { Payment } from "../entities/Payment/Payment";
 import type { PaymentMethod } from "../entities/Payment/PaymentMethod";
 import type { PaymentStatus } from "../entities/Payment/PaymentStatus";
-import type { IdGenerator } from "../../app/contracts/idGenerator";
+import type { IdGenerator } from "../../app/ports/idGenerator";
 
 export class ProcessPayment {
   private readonly idGenerator: IdGenerator;
