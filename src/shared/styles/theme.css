@@ -6,8 +6,8 @@
   ========================= */
   --color-primary: #1a1a1a;
   --color-text-primary: #ffffff;
-  --color-accent-pink: #ff0066;
-  --color-accent-blue: #00ffff;
+  --color-accent-pink: #fc1474;
+  --color-accent-blue: #295fee;
   --color-dark-gray: #333333;
   --color-light-gray: #cccccc;
 
@@ -22,6 +22,20 @@
   --color-surface: #111111;
   --color-card: #1f1f1f;
   --color-overlay: rgba(0, 0, 0, 0.6);
+  
+  /* GRADIENTS */
+  --color-gradient-pink-r: linear-gradient(
+    to right,
+    var(--color-accent-pink) 1px,
+    transparent 1px
+  );
+
+  --color-gradient-pink-b: linear-gradient(
+    to bottom,
+    var(--color-accent-pink) 1px,
+    transparent 1px
+  );
+
 
   /* TEXT */
   --color-text-heading: var(--color-text-primary);
@@ -31,9 +45,11 @@
 
   /* BUTTON */
   --color-button-primary: var(--color-accent-pink);
+  --color-button-primary-hover: #d80c60;
   --color-button-primary-foreground: var(--color-text-primary);
 
   --color-button-secondary: transparent;
+  --color-button-secondary-hover: var(--color-dark-gray);
   --color-button-secondary-foreground: var(--color-text-primary);
   --color-button-secondary-border: var(--color-dark-gray);
 
@@ -52,13 +68,6 @@
      TYPOGRAPHY
   ========================= */
   --font-sans: var(--font-base);
-
-  /* =========================
-     RADIUS
-  ========================= */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
 
   /* =========================
      SHADOWS / EFFECTS
