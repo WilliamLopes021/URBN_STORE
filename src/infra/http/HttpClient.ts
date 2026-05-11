@@ -6,12 +6,19 @@ export type HttpRequest = {
   body?: unknown;
   headers?: Record<string, string>;
   params?: Record<string, string | number>;
+  skipAuth?: boolean;
 };
 
 export type HttpResponse<T = unknown> = {
   status: number;
   data: T;
   headers: Record<string, unknown>;
+};
+
+export type HttpResponseWithError<E = unknown> = {
+  status: number;
+  error: E;
+  message: string;
 };
 
 export interface HttpClient {

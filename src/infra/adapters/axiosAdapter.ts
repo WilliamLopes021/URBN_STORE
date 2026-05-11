@@ -7,62 +7,76 @@ import type {
   HttpClient,
   HttpRequest,
   HttpResponse,
+  HttpResponseWithError,
 } from "@/infra/http/HttpClient";
 
 type RetryableRequestConfig = InternalAxiosRequestConfig & {
   _retry?: boolean;
+  skipAuth?: boolean;
+};
+
+export type AuthCallbacks = {
+  refresh: () => Promise<void>;
+  unauthorized: () => Promise<void>;
 };
 
 export class AxiosHttpClient implements HttpClient {
   private client: AxiosInstance;
   private refreshPromise: Promise<void> | null = null;
-  private refreshUseCase: () => Promise<void>;
-  private logoutUseCase: () => Promise<void>;
+  private refresh?: () => Promise<void>;
+  private unauthorized?: () => Promise<void>;
+  private interceptorId?: number;
 
-  constructor(
-    logoutUseCase?: () => Promise<void>,
-    refreshUseCase?: () => Promise<void>,
-  ) {
+  constructor({ refresh, unauthorized }: AuthCallbacks) {
+    this.refresh = refresh;
+    this.unauthorized = unauthorized;
     this.client = axios.create({
       baseURL: import.meta.env.VITE_API_URL,
       withCredentials: true,
     });
-    if (refreshUseCase && logoutUseCase) {
-      this.refreshUseCase = refreshUseCase;
-      this.logoutUseCase = logoutUseCase;
-      this.setupInterceptors();
-    }
+    this.setupInterceptors();
   }
 
   private setupInterceptors() {
-    this.client.interceptors.response.use(
+    if (this.interceptorId !== undefined) return;
+
+    this.interceptorId = this.client.interceptors.response.use(
       (response) => response,
       async (error: AxiosError) => {
-        
-        if (!error.config) {
+        if (!error.config) return Promise.reject(this.normalizeError(error));
+
+        if (!this.refresh || !this.unauthorized) {
+          return Promise.reject(this.normalizeError(error));
+        }
+        const originalRequest = error.config as RetryableRequestConfig;
+
+        // Se a requisição não tiver autenticação, não fazer nada
+        if (originalRequest.skipAuth) {
           return Promise.reject(this.normalizeError(error));
         }
 
-        const originalRequest = error.config as RetryableRequestConfig;
-
+        // só permitir a entrada no refresh se a requisição não foi uma tentativa de refresh
         if (error.response?.status === 401 && !originalRequest._retry) {
           originalRequest._retry = true;
 
           if (!this.refreshPromise) {
-            this.refreshPromise = this.refreshUseCase().finally(() => {
+            this.refreshPromise = this.refresh().finally(() => {
               this.refreshPromise = null;
             });
           }
 
-          await this.refreshPromise;
-          return this.client(originalRequest).catch(async (error: AxiosError) => {
-            await this.logoutUseCase();
-            return this.normalizeError(error);
-          });
+          try {
+            await this.refreshPromise;
+          } catch (err) {
+            await this.unauthorized();
+            return Promise.reject(this.normalizeError(err));
+          }
+
+          return this.client(originalRequest);
         }
 
         if (originalRequest._retry && error.response?.status === 401) {
-          await this.logoutUseCase();
+          await this.unauthorized();
         }
 
         return Promise.reject(this.normalizeError(error));
@@ -71,13 +85,15 @@ export class AxiosHttpClient implements HttpClient {
   }
 
   async request<T>(input: HttpRequest): Promise<HttpResponse<T>> {
+    const skipAuth = input.skipAuth as boolean | undefined;
     const response = await this.client.request({
       url: input.url,
       method: input.method,
       data: input.body,
       headers: input.headers,
       params: input.params,
-    });
+      skipAuth: skipAuth ?? false,
+    } as RetryableRequestConfig);
 
     return {
       status: response.status,
@@ -86,11 +102,16 @@ export class AxiosHttpClient implements HttpClient {
     };
   }
 
-  private normalizeError(error: AxiosError) {
+  private normalizeError(error: AxiosError): HttpResponseWithError {
     return {
-      status: error.response?.status,
-      data: error.response?.data,
+      status: error.response?.status ?? 500,
+      error: error.response?.data,
       message: error.message,
     };
+  }
+
+  setCallbacks(callbacks: AuthCallbacks) {
+    this.refresh = callbacks.refresh;
+    this.unauthorized = callbacks.unauthorized;
   }
 }
