@@ -7,7 +7,7 @@ import { SubTitle } from "@/shared/components/atoms/SubTitle";
 
 export const HeroBanner = () => {
   return (
-    <section className="text-text-primary text-xl w-full relative overflow-hidden p-8 bg-radial-[at_25%_25%] from-primary to-accent-blue/20 to-85% ">
+    <section className="text-text-primary text-xl w-full relative overflow-hidden p-8 bg-radial-[at_25%_25%] from-primary to-accent-blue/20 to-85%">
       <div className="z-10 relative w-3/4 flex flex-col gap-5">
         <SubTitle>
           BUILT DIFFERENT. <Globe />
