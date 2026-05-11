@@ -1,6 +1,6 @@
 import type { OrderProps } from "./Order.props";
 import type { UniqueEntityId } from "../../value-objects/UniqueEntityId";
-import type { Money } from "../../value-objects/Money";
+import { Money } from "../../value-objects/Money";
 import type { OrderStatus } from "./OrderStatus";
 import type { OrderItem } from "../OrderItem/OrderItem";
 
@@ -37,10 +37,6 @@ export class Order {
     this.props.items.filter((i) => !i.getId().equals(item.getId()));
   }
 
-  public setTotal(total: Money): void {
-    this.props.total = total;
-  }
-
   public getItems(): OrderItem[] {
     return this.props.items;
   }
@@ -53,7 +49,12 @@ export class Order {
   }
 
   public getTotal(): Money {
-    return this.props.total;
+    const items = this.props.items.map((item) => item.getSubtotal());
+    const total = items.reduce(
+      (acc, item) => acc.add(item),
+      Money.create(0, items[0].getCurrency()),
+    );
+    return total;
   }
 
   public getStatus(): OrderStatus {

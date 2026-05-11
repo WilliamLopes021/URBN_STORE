@@ -2,7 +2,7 @@ import type { Order } from "../entities/Order/Order";
 import { Payment } from "../entities/Payment/Payment";
 import type { PaymentMethod } from "../entities/Payment/PaymentMethod";
 import type { PaymentStatus } from "../entities/Payment/PaymentStatus";
-import type { IdGenerator } from "../../app/ports/idGenerator";
+import type { IdGenerator } from "@/application/interfaces/ports/IdGenerator";
 
 export class ProcessPayment {
   private readonly idGenerator: IdGenerator;
@@ -13,7 +13,7 @@ export class ProcessPayment {
 
   public process(order: Order, paymentMethod: PaymentMethod): Payment {
     const payment = Payment.create({
-      id: this.idGenerator.generate(),
+      id: this.idGenerator.generateUuid(),
       orderId: order.getId(),
       paymentMethod,
       amount: order.getTotal(),
@@ -21,6 +21,7 @@ export class ProcessPayment {
       createdAt: new Date(),
       updatedAt: new Date(),
     });
+    
     return payment;
   }
 }

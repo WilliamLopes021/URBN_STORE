@@ -1,8 +1,15 @@
 export class UniqueEntityId {
   private readonly value: string;
 
-  constructor(value: string) {
+  private constructor(value: string) {
     this.value = value;
+  }
+
+  public static create(value: string): UniqueEntityId {
+    if (!value || value.trim() === "") {
+      throw new Error("Invalid ID");
+    }
+    return new UniqueEntityId(value);
   }
 
   public equals(other: UniqueEntityId): boolean {

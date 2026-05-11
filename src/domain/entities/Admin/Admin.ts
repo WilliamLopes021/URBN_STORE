@@ -1,6 +1,7 @@
 import type { AdminProps } from "./Admin.props";
 import { Name } from "../../value-objects/Name";
 import { Password } from "../../value-objects/Password";
+import { UniqueEntityId } from "../../value-objects/UniqueEntityId";
 export class Admin {
   private readonly props: AdminProps;
 
@@ -12,12 +13,22 @@ export class Admin {
     return new Admin(props);
   }
 
-  public updateCredentials(name?: string, profilePicture?: string): void {
+  public updateCredentials({
+    name,
+    profilePicture,
+  }: {
+    name?: string;
+    profilePicture?: string;
+  }): void {
     if (name) this.props.name = Name.create(name);
     if (profilePicture) this.props.profilePicture = profilePicture;
   }
 
-  public updatePassword(newPassword: string): void {
+  public updatePassword(oldPassword: string, newPassword: string): void {
+    if (!this.props.password.equals(oldPassword)) {
+      throw new Error("A senha antiga está incorreta");
+    }
+
     this.props.password = Password.create(newPassword);
   }
 
@@ -38,5 +49,9 @@ export class Admin {
 
   public getTimeStamps() {
     return { createdAt: this.props.createdAt, updatedAt: this.props.updatedAt };
+  }
+
+  public getId(): UniqueEntityId {
+    return this.props.id;
   }
 }

@@ -1,4 +1,3 @@
-import type { Category } from "../Category/Category";
 import type { Money } from "../../value-objects/Money";
 import { Name } from "../../value-objects/Name";
 import type { ProductProps } from "./Product.props";
@@ -25,7 +24,7 @@ export class Product {
       name: this.props.name,
       description: this.props.description,
       price: this.props.price,
-      category: this.props.category,
+      categoryId: this.props.categoryId,
       images: this.props.images,
     };
   }
@@ -42,8 +41,8 @@ export class Product {
     this.props.price = price;
   }
 
-  public updateCategory(category: Category): void {
-    this.props.category = category;
+  public updateCategory(categoryId: UniqueEntityId): void {
+    this.props.categoryId = categoryId;
   }
 
   public getStock(): number {
@@ -76,5 +75,9 @@ export class Product {
 
   public getId(): UniqueEntityId {
     return this.props.id;
+  }
+
+  public getCategoryId(): UniqueEntityId {
+    return this.props.categoryId;
   }
 }

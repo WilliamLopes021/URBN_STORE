@@ -42,4 +42,8 @@ export class Password {
   public getValue(): string {
     return this.value;
   }
+
+  public equals(password: string): boolean {
+    return this.value === password;
+  }
 }
