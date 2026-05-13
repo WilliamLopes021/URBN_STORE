@@ -1,16 +1,14 @@
-import NavBar from "@/shared/components/molecules/NavBar";
-import { HeroBanner } from "@/features/product/components/HeroBanner";
-import Drops from "./features/product/components/Drops";
-import Footer from "./shared/components/molecules/Footer";
+import { RouterContext } from "./interfaces/router/RouterContext";
+import { Home } from "@/features/product/pages/Home";
+import { Product } from "@/features/product/pages/Product";
+import { Route } from "react-router";
 
 function App() {
   return (
-    <div className="min-h-screen bg-bg">
-      <NavBar />
-      <HeroBanner />
-      <Drops />
-      <Footer />
-    </div>
+    <RouterContext>
+      <Route path="/" element={<Home />} />
+      <Route path="/product/:id" element={<Product />} />
+    </RouterContext>
   );
 }
 
