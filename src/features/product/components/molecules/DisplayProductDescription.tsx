@@ -1,13 +1,17 @@
 import { Span } from "@/shared/components/atoms/Span";
 import { Heart } from "lucide-react";
-import { SizeDisplay } from "./SizeDisplay";
+import { SizeDisplay } from "../atoms/SizeDisplay";
 
 export const DisplayProductDescription = ({
   name,
   price,
+  description,
+  sizes,
 }: {
   name: string;
   price: string;
+  description: string;
+  sizes: string[];
 }) => {
   return (
     <section className="">
@@ -18,14 +22,11 @@ export const DisplayProductDescription = ({
         </div>
         <p className="text-lg text-accent-blue">{price}</p>
         <div className="mt-5">
-          <Span>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo,
-            inventore eum! Dignissimos.
-          </Span>
+          <Span>{description}</Span>
         </div>
       </header>
       <div className="p-8 border-x border-dark-gray">
-      <SizeDisplay />
+      <SizeDisplay sizes={sizes}/>
       </div>
     </section>
   );
