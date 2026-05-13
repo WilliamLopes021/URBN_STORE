@@ -1,7 +1,7 @@
 import { Globe } from "lucide-react";
 import { Span } from "../atoms/Span";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="w-full bg-primary border-y border-accent-pink/20 relative overflow-hidden mt-10">
       <div className="absolute inset-0 opacity-10 pointer-events-none bg-gradient-pink-r bg-size-[10px_10px] bg-linear-to-r from-transparent to-accent-pink" />
@@ -27,5 +27,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

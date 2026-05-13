@@ -1,6 +1,6 @@
 import { Menu, ShoppingCart } from "lucide-react";
 
-const MobileNavBar = () => {
+export const NavBar = () => {
   return (
     <section className="bg-primary border-b border-dark-gray">
       <div className="flex items-center justify-between p-4">
@@ -16,5 +16,3 @@ const MobileNavBar = () => {
     </section>
   );
 };
-
-export default MobileNavBar;
