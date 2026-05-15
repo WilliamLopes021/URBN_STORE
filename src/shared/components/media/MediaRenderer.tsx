@@ -6,12 +6,12 @@ import { EmbedRenderer } from "./EmbedRenderer";
 export const MediaRenderer = ({ media }: { media: MediaViewModel }) => {
   return (
     <>
-      {media.type === "image" ? (
-        <ImageRenderer media={media} />
+      {media.type === "embed" ? (
+        <EmbedRenderer media={media} />
       ) : media.type === "video" ? (
         <VideoRenderer media={media} />
       ) : (
-        <EmbedRenderer media={media} />
+        <ImageRenderer media={media} />
       )}
     </>
   );
