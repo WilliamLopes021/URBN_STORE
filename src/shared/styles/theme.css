@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* =========================
-     PRIMITIVES
-  ========================= */
   --color-primary: #1a1a1a;
   --color-text-primary: #ffffff;
   --color-accent-pink: #fc1474;
@@ -12,10 +9,6 @@
   --color-light-gray: #cccccc;
 
   --font-base: "Montserrat", sans-serif;
-
-  /* =========================
-     SEMANTIC COLORS (ALINHADO AO TAILWIND)
-  ========================= */
 
   /* BACKGROUND */
   --color-bg: var(--color-primary);
@@ -36,13 +29,6 @@
     var(--color-accent-pink) 1px,
     transparent 1px
   );
-
-
-  /* TEXT */
-  --color-text-heading: var(--color-text-primary);
-  --color-text-body: var(--color-light-gray);
-  --color-text-muted: #888888;
-  --color-text-inverse: #000000;
 
   /* BUTTON */
   --color-button-primary: var(--color-accent-pink);
