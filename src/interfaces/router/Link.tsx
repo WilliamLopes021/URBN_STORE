@@ -7,8 +7,7 @@ export const Anchor = ({
 }: {
   to: string;
   children: React.ReactNode;
-  props?: React.AnchorHTMLAttributes<HTMLAnchorElement>;
-}) => {
+} & React.ComponentProps<"a">) => {
   return (
     <Link to={to} {...props}>
       {children}
