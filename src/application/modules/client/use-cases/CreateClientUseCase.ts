@@ -19,14 +19,6 @@ export class CreateClientUseCase {
   async execute(input: CreateClientInputDTO): Promise<Client> {
     const { name, email, phone, password } = input;
 
-    if (email !== input.confirmEmail) {
-      throw new Error("Emails do not match");
-    }
-
-    if (password && password !== input.confirmPassword) {
-      throw new Error("Passwords do not match");
-    }
-
     const id = this.idGenerator.generateUuid();
     const nameOrError = Name.create(name);
     const emailOrError = Email.create(email);
@@ -38,7 +30,7 @@ export class CreateClientUseCase {
       name: nameOrError,
       email: emailOrError,
       profilePicture: input.profilePicture,
-      dataNasc: input.dataNasc,
+      dataNasc: input.dataNasc ? new Date(input.dataNasc) : undefined,
       phone: phoneOrError,
       password: passwordOrError as Password,
       createdAt: new Date(),
