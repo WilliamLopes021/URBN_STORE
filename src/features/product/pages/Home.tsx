@@ -7,13 +7,30 @@ import { CategoryGrid } from "../components/organism/CategoryGrid";
 import { SubTitle } from "@/shared/components/atoms/SubTitle";
 import { Span } from "@/shared/components/atoms/Span";
 import { mockMedia } from "../constants/mockMedia";
-import { ProductModal } from "../components/organism/ProductModal";
+import { ProductPost } from "../components/molecules/ProductPost";
+import { PostModal } from "../components/modals/PostModal";
+import { useEffect, useState } from "react";
 
 export const Home = () => {
+  const [openModal, setOpenModal] = useState<string | null>(null);
+  const toggleModal = (id: string) =>
+    setOpenModal((prev) => (prev === id ? null : id));
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOpenModal(null);
+    };
+
+    if (openModal) {
+      window.addEventListener("scroll", handleScroll);
+    }
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [openModal]);
+
   return (
     <>
       <NavBar />
-      <main className="border border-dark-gray">
+      <main className="">
         <HeroBanner />
         <Drops drops={products} />
         <CategoryGrid />
@@ -23,17 +40,24 @@ export const Home = () => {
             <Span>#URBNCOMMUNITY</Span>
           </header>
 
-          <div className="flex flex-wrap gap-2 justify-center ">
+          <div className="flex flex-wrap justify-center gap-5">
             {mockMedia.map((media) => {
               return (
-                <ProductModal
-                  productId={media.id}
-                  price={100}
-                  description={media.alt}
-                  medias={mockMedia}
-                  modalController={{ isOpen: false, onClose: () => {} }}
-                  key={media.id}
-                />
+                <div key={`${media.id}-post-container`}>
+                  <ProductPost
+                    image={media.thumb}
+                    alt={media.alt}
+                    onClick={() => toggleModal(media.id)}
+                  />
+                  <PostModal
+                    onClose={() => toggleModal(media.id)}
+                    isOpen={openModal === media.id}
+                    productId={media.id}
+                    media={media}
+                    description={media.alt}
+                    price={100}
+                  />
+                </div>
               );
             })}
           </div>

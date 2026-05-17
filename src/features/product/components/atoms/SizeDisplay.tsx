@@ -1,6 +1,6 @@
 export const SizeDisplay = ({ sizes }: { sizes: string[] }) => {
   return (
-    <div className="my-4">
+    <div className="my-4 px-8">
       <div className="flex justify-between items-center">
         <span className="text-text-primary">Tamanhos</span>
         <span className="text-accent-blue">Guia</span>

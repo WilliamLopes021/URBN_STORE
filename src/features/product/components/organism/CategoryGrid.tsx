@@ -4,7 +4,7 @@ import { categories } from "../../constants/mockCategories";
 
 export const CategoryGrid = () => {
   return (
-    <section className="px-8 my-5">
+    <section className="px-8 py-5 my-5 border border-dark-gray">
       <header className="text-xl text-text-primary mb-4">
         <SubTitle>Navegue por Categoria</SubTitle>
       </header>
