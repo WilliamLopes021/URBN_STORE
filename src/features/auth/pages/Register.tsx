@@ -66,7 +66,6 @@ export const Register = () => {
           />
         </FormField>
 
-        {/* Confirm Password */}
         <FormField label="Confirm Password">
           <Input
             type={showConfirmPassword ? "text" : "password"}

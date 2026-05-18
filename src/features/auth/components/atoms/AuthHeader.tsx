@@ -1,7 +1,7 @@
 import { Globe } from "lucide-react";
 
 const logoStyle: React.CSSProperties = {
-  fontSize: "clamp(5rem, 28vw, 7rem)",
+  fontSize: "clamp(3rem, 25vw, 5rem)",
   letterSpacing: "-0.02em",
 };
 

@@ -9,10 +9,11 @@ export const ActiveAccountModal = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+
   const router = useRouter();
   if (!isOpen) return null;
   return (
-    <ModalBase onClose={() => onClose()}>
+    <ModalBase onClose={() => {}}>
       <div className="flex flex-col gap-4 w-full text-text-primary bg-bg p-8 rounded-lg">
         <div>
           <h2 className="text-2xl mb-3"> Deseja ativar a sua conta?</h2>
@@ -21,8 +22,14 @@ export const ActiveAccountModal = ({
             produtos favoritos.
           </p>
         </div>
-        <Button onClick={() => router('/verify-code')}>Sim, ativar conta</Button>
-        <Button onClick={() => onClose()} color="secondary">
+        <Button onClick={() => router("/activate-account")}>Sim, ativar conta</Button>
+        <Button
+          onClick={() => {
+            onClose();
+            router("/");
+          }}
+          color="secondary"
+        >
           Cancelar
         </Button>
       </div>

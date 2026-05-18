@@ -22,7 +22,7 @@ export const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
+            placeholder="usuario@email.com"
             leftIcon={<Mail size={15} className="text-light-gray" />}
             required
           />
@@ -34,7 +34,7 @@ export const Login = () => {
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
+            placeholder="senha"
             leftIcon={<Lock size={15} className="text-light-gray" />}
             rightIcon={
               <button
@@ -52,10 +52,10 @@ export const Login = () => {
 
         <div className="w-full flex justify-end -mt-2">
           <Anchor
-            to="/forgot-password"
+            to="/recover-password"
             className="text-accent-blue text-xs font-semibold hover:underline transition-all"
           >
-            Forgot Password?
+            Recuperar senha
           </Anchor>
         </div>
 
