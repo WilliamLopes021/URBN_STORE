@@ -1,4 +1,4 @@
-type FooterSection = {
+export type FooterSection = {
   label: string;
   links: { name: string; href: string }[];
 };

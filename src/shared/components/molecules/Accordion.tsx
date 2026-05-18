@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { FOOTER_SECTIONS } from "@/shared/constants/footerSections";
-import { SOCIAL_LINKS } from "@/shared/constants/socialLinks";
+import { type FooterSection } from "@/shared/constants/footerSections";
 import { Anchor } from "@/interfaces/router/Link";
 
-export const FooterAccordion = () => {
+export const Accordion = ({ sections }: { sections: FooterSection[] }) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggle = (label: string) => {
@@ -12,9 +11,9 @@ export const FooterAccordion = () => {
   };
 
   return (
-    <div className="bg-surface w-full px-5 py-4">
+    <div className="w-full px-5 py-4">
       <div className="divide-y divide-dark-gray">
-        {FOOTER_SECTIONS.map(({ label, links }) => {
+        {sections.map(({ label, links }) => {
           const isOpen = openSection === label;
 
           return (
@@ -24,7 +23,7 @@ export const FooterAccordion = () => {
                 className="w-full flex items-center justify-between py-4 text-left group"
                 aria-expanded={isOpen}
               >
-                <span className="text-text-primary font-black text-sm tracking-widest">
+                <span className="text-text-primary font-black text-lg tracking-widest">
                   {label}
                 </span>
                 <ChevronDown
@@ -56,25 +55,6 @@ export const FooterAccordion = () => {
             </div>
           );
         })}
-      </div>
-
-      <div className="pt-6">
-        <p className="text-text-primary font-black text-sm tracking-widest mb-4">
-          FOLLOW THE CHAOS
-        </p>
-        <div className="flex gap-5">
-          {SOCIAL_LINKS.map((social) => (
-            <a
-              key={social.name}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-light-gray text-sm hover:text-text-primary transition-colors duration-200"
-            >
-              {social.name}
-            </a>
-          ))}
-        </div>
       </div>
     </div>
   );
