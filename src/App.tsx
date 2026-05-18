@@ -1,13 +1,27 @@
 import { RouterContext } from "./interfaces/router/RouterContext";
 import { Home } from "@/features/product/pages/Home";
 import { Product } from "@/features/product/pages/Product";
+import { NotFound } from "@/shared/pages/NotFound";
 import { Route } from "react-router";
+import { Login } from "@/features/auth/pages/Login";
+import { Register } from "@/features/auth/pages/Register";
+import { VerifyCode } from "@/features/auth/pages/VerifyCode";
+import { ActivateAccount } from "@/features/auth/pages/ActivateAccount";
+import { RecoverPassword } from "@/features/auth/pages/RecoverPassword";
+
 
 function App() {
   return (
     <RouterContext>
       <Route path="/" element={<Home />} />
       <Route path="/product/:id" element={<Product />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/activate-account" element={<ActivateAccount />} />
+      <Route path="/recover-password" element={<RecoverPassword />} />
+      <Route path="/verify-code" element={<VerifyCode />} />
+      <Route path="*" element={<NotFound />} />
+
     </RouterContext>
   );
 }
