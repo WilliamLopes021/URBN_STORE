@@ -44,7 +44,7 @@ export const PostModal = ({
         <Ellipsis className={`text-text-primary`} />
       </div>
       <div
-        className="w-full h-full max-h-[400px] "
+        className="w-full h-full max-h-100 "
         onClick={(e) => e.stopPropagation()}
       >
         <MediaRenderer media={media} />

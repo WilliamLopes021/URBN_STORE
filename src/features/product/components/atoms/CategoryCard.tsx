@@ -13,30 +13,29 @@ export const CategoryCard = ({
         <div className="absolute inset-0 bg-linear-to-r from-surface to-transparent z-10 pointer-events-none" />
 
         <div className="relative z-20 flex flex-col justify-between p-5 w-1/2">
-          <div className="flex flex-col gap-1">
-            {category.icon && (
+          <div className="flex flex-col gap-1 sm:flex-row sm:justify-baseline sm:items-center sm:gap-3">
+            <div className="w-1/3 sm:w-1/4 lg:w-1/5">
               <img
                 src={category.icon}
                 alt=""
-                className="w-6 h-6 object-contain mb-1"
+                className="w-full h-full object-cover mb-1 hidden sm:block"
               />
-            )}
+            </div>
 
-            <span className="text-text-primary font-black text-2xl uppercase leading-none tracking-wide">
-              {category.name}
-            </span>
-
-            {category.description && (
-              <span className="text-text-primary text-xs mt-0.5">
-                {category.description}
+            <div className="flex flex-col 1/3">
+              <span className="text-text-primary font-black text-2xl uppercase leading-none tracking-wide">
+                {category.name}
               </span>
-            )}
-          </div>
 
-          <ArrowRight
-            size={18}
-            className="text-accent transition-all"
-          />
+              {category.description && (
+                <span className="text-text-primary text-xs mt-0.5">
+                  {category.description}
+                </span>
+              )}
+            </div>
+
+            <ArrowRight size={22} className="text-accent transition-all" />
+          </div>
         </div>
 
         <div className="absolute right-0 top-0 h-full w-3/5">
