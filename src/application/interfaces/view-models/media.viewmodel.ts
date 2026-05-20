@@ -5,5 +5,5 @@ export interface MediaViewModel {
   thumb: string;
   type: MediaType;
   url: string;
-  alt?: string;
+  alt: string;
 }
