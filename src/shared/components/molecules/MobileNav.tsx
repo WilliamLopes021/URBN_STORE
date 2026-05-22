@@ -6,7 +6,7 @@ import { Anchor } from "@/interfaces/router/Link";
 export const MobileNav = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <nav
-      className={`bg-surface border-t-2 border-accent-blue overflow-hidden duration-300 transition-all ease-in ${isVisible ? "max-h-screen p-5" : "max-h-0 opacity-0"}`}
+      className={`border-t-2 border-accent-blue overflow-hidden duration-300 transition-all ease-in ${isVisible ? "max-h-screen p-5" : "max-h-0 opacity-0"}`}
     >
       <ul className="flex flex-col text-lg">
         {NAV_LINKS.map((link) => (
