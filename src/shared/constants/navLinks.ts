@@ -4,17 +4,10 @@ export const NAV_LINKS = [
     href: "/",
   },
   {
-    name: "Compras",
-    href: "/men",
-  },
-  {
     name: "Favoritos",
     href: "/women",
   },
-  {
-    name: "Minha Conta",
-    href: "/conta",
-  },
+
   {
     name: "Contato",
     href: "/contato",

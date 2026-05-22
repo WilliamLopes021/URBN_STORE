@@ -20,7 +20,7 @@ export const Accordion = ({ sections }: { sections: FooterSection[] }) => {
             <div key={`${label}-footer`}>
               <button
                 onClick={() => toggle(label)}
-                className="w-full flex items-center justify-between py-4 text-left group"
+                className="w-full flex items-center justify-between py-4 text-left group cursor-pointer"
                 aria-expanded={isOpen}
               >
                 <span className="text-text-primary font-black text-lg tracking-widest">
