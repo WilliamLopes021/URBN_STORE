@@ -7,8 +7,8 @@ import { SubTitle } from "@/shared/components/atoms/SubTitle";
 
 export const Drops = ({ drops }: { drops: ProductViewModel[] }) => {
   return (
-    <section>
-      <header className="text-text-primary text-xl flex justify-between px-8 my-5">
+    <section className="">
+      <header className="text-text-primary text-xl flex justify-between px-8 my-5 ">
         <SubTitle>Lançamentos</SubTitle>
         <div>
           <Span>

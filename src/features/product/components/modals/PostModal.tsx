@@ -28,7 +28,7 @@ export const PostModal = ({
     <ModalBase onClose={() => onClose()}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`flex w-full justify-between items-center px-4 py-2 bg-card-bg`}
+        className={`flex w-full max-w-[450px] justify-between items-center px-4 py-2 bg-card-bg`}
       >
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo" className={`rounded-full w-10 h-10`} />
@@ -44,11 +44,13 @@ export const PostModal = ({
         <Ellipsis className={`text-text-primary`} />
       </div>
       <div
-        className="w-full h-full max-h-100 "
+        className="w-full h-full max-h-100 max-w-[450px]"
         onClick={(e) => e.stopPropagation()}
       >
         <MediaRenderer media={media} />
-        <div className={`flex w-full justify-between items-center px-4 py-2 bg-card-bg`}>
+        <div
+          className={`flex w-full justify-between items-center px-4 py-2 bg-card-bg`}
+        >
           <p className={`text-xs font-bold text-text-primary`}>{description}</p>
           <div className={`flex w-full justify-end items-center gap-3`}>
             <Share2 className={`text-text-primary`} />

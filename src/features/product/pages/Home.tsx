@@ -30,11 +30,12 @@ export const Home = () => {
   return (
     <>
       <NavBar />
-      <main className="">
+      <main>
         <HeroBanner />
+
         <Drops drops={products} />
         <CategoryGrid />
-        <section className="px-8">
+        <section className="px-8 ">
           <header className="text-xl mb-4 text-text-primary">
             <SubTitle>Comunidade URBN</SubTitle>
             <Span>#URBNCOMMUNITY</Span>
