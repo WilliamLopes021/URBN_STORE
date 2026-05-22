@@ -29,3 +29,6 @@ dist-ssr
 
 # personal notes
 docs/
+
+# vscode config
+.vscode/
