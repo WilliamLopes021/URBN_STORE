@@ -8,6 +8,7 @@ import { Register } from "@/features/auth/pages/Register";
 import { VerifyCode } from "@/features/auth/pages/VerifyCode";
 import { ActivateAccount } from "@/features/auth/pages/ActivateAccount";
 import { RecoverPassword } from "@/features/auth/pages/RecoverPassword";
+import { Profile } from "@/features/user/pages/Profile";
 
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
       <Route path="/activate-account" element={<ActivateAccount />} />
       <Route path="/recover-password" element={<RecoverPassword />} />
       <Route path="/verify-code" element={<VerifyCode />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="*" element={<NotFound />} />
-
     </RouterContext>
   );
 }

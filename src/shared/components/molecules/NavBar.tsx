@@ -2,13 +2,15 @@ import { Menu, ShoppingCart, User, Search } from "lucide-react";
 import { useState } from "react";
 import { MobileNav } from "./MobileNav";
 import { DesktopNavBar } from "./DesktopNavBar";
+import { useRouter } from "@/interfaces/router/useRouter";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useRouter();
   const iconsList = [
-    { icon: <Search />, key: "search" },
-    { icon: <User />, key: "user" },
-    { icon: <ShoppingCart />, key: "shopping-cart" },
+    { icon: <Search />, path: "/search" },
+    { icon: <User />, path: "/profile" },
+    { icon: <ShoppingCart />, path: "/cart" },
   ];
 
   return (
@@ -29,7 +31,8 @@ export const NavBar = () => {
         <div className="hidden md:flex md:gap-6">
           {iconsList.map((icon) => (
             <button
-              key={icon.key}
+              key={icon.path}
+              onClick={() => navigate(icon.path)}
               className="text-text-primary hidden sm:block cursor-pointer"
             >
               {icon.icon}
