@@ -31,7 +31,7 @@ export const CustomerReviews = ({
   }
 
   const next = () => {
-    console.log(pages)
+    console.log(pages);
     setCurrentReviewIndex((prev) => {
       if (prev === pages.length - 1) return prev;
       return prev + 1;
@@ -60,7 +60,6 @@ export const CustomerReviews = ({
         </Anchor>
       </div>
 
-      {/* Média geral */}
       <div className="flex items-center gap-3 mb-6">
         <span className="text-text-primary font-black text-4xl leading-none">
           {averageRating.toFixed(1)}
@@ -71,14 +70,19 @@ export const CustomerReviews = ({
         </div>
       </div>
 
-      {/* Lista de reviews */}
       <div>
         {pages[currentReviewIndex].map((review) => (
           <ReviewCard key={review.id} review={review} />
         ))}
         <div className="flex items-center gap-10 mt-5 w-full justify-end text-text-primary">
-          <ChevronLeft onClick={() => prev()} />
-          <ChevronRight onClick={() => next()} />
+          <ChevronLeft
+            className="cursor-pointer hover:bg-accent-blue/20 transition-colors duration-200 rounded-full p-1"
+            onClick={() => prev()}
+          />
+          <ChevronRight
+            className="cursor-pointer hover:bg-accent-blue/20 transition-colors duration-200 rounded-full p-1"
+            onClick={() => next()}
+          />
         </div>
       </div>
     </section>

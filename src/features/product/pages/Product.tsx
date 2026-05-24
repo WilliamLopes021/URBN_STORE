@@ -27,11 +27,11 @@ export const Product = () => {
         images={product.images}
         category={product.category}
       />
-      <section className="p-6 border-t border-dark-gray text-text-primary">
+      <section className="p-6 border-t border-dark-gray text-text-primary max-w-[1000px] mx-auto w-full">
         <header className="text-2xl">
           <SubTitle>Produtos similares</SubTitle>
         </header>
-        <div className="flex mt-4 gap-3 overflow-auto">
+        <div className="flex mt-4 gap-3 overflow-y-hidden">
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -42,7 +42,7 @@ export const Product = () => {
           ))}
         </div>
       </section>
-      <section>
+      <section className="max-w-[1000px] mx-auto w-full border-t border-dark-gray">
         <CustomerReviews
           reviews={reviews}
           averageRating={averageRating}

@@ -13,8 +13,8 @@ export const DisplayProductDescription = ({
   sizes,
 }: Partial<ProductViewModel>) => {
   return (
-    <section className="">
-      <header className="border p-8 border-dark-gray text-text-primary text-4xl">
+    <section className="max-w-[1000px] mx-auto w-full">
+      <header className="border-b border-dark-gray p-8 text-text-primary text-4xl">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold uppercase tracking-widest">
             {name}
@@ -26,7 +26,7 @@ export const DisplayProductDescription = ({
           <Span>{category.description}</Span>
         </div>
       </header>
-      <div className="w-full py-8 border-x border-dark-gray ">
+      <div className="w-full py-8 border-b border-dark-gray ">
         <SizeDisplay sizes={sizes} />
         <div className="flex items-center gap-2 text-text-primary text-xs px-8">
           <Check className="w-5 h-5 bg-accent-blue text-primary rounded-full p-1" />
