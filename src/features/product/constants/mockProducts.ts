@@ -16,7 +16,7 @@ export const products: ProductViewModel[] = [
     description: "Descrição do produto 1",
     price: "R$100,00",
     stock: 10,
-    images: [img1, img1, img1],
+    images: [img1, img2, img4],
     sizes: ["P", "M", "G", "GG"],
   },
   {
