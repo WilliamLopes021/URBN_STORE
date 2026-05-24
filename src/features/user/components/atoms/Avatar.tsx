@@ -1,6 +1,6 @@
-export const Avatar = ({ src, alt = "Avatar" }) => (
+export const Avatar = ({ src, alt }: {src: string, alt: string}) => (
   <div
-    className="border-3 shadow-md shadow-accent-pink/50 border-accent-pink size-[96px] rounded-full overflow-hidden shrink-0"
+    className="border-3 shadow-md shadow-accent-pink/50 border-accent-pink size-[160px] rounded-full overflow-hidden"
   >
     <img
       src={src}
@@ -10,4 +10,3 @@ export const Avatar = ({ src, alt = "Avatar" }) => (
     />
   </div>
 );
-
