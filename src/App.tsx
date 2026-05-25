@@ -9,7 +9,7 @@ import { VerifyCode } from "@/features/auth/pages/VerifyCode";
 import { ActivateAccount } from "@/features/auth/pages/ActivateAccount";
 import { RecoverPassword } from "@/features/auth/pages/RecoverPassword";
 import { Profile } from "@/features/user/pages/Profile";
-
+import { Cart } from "@/features/payment/pages/Cart";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
       <Route path="/recover-password" element={<RecoverPassword />} />
       <Route path="/verify-code" element={<VerifyCode />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path='/cart' element={<Cart />} />
       <Route path="*" element={<NotFound />} />
     </RouterContext>
   );
