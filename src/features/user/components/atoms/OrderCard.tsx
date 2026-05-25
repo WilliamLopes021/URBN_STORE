@@ -16,31 +16,31 @@ export const OrderCard = ({ order }: { order: OrderViewModel }) => {
 
   return (
     <div className="flex justify-between items-center border border-dark-gray rounded-lg p-4">
-      <div className="flex items-center gap-4">
-        <div className="w-1/4">
-          <img
-            src={order.products[0].images[0]}
-            alt={`Imagem de ${order.products[0].name}`}
-            className="w-full h-full object-contain"
-          />
-        </div>
+      <div className="w-1/4 hidden md:block">
+        <img
+          src={order.products[0].images[0]}
+          alt={`Imagem de ${order.products[0].name}`}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="flex flex-col sm:flex-row gap-4 justify-between w-full">
         <div className="flex flex-col gap-1 text-light-gray">
           <div className="flex text-sm gap-2 items-baseline">
             <p className="font-bold text-lg text-text-primary">
               {`${order.products[0].name}`}
             </p>
-            <p>{`${showQuantityLabel ? quantityLabel : ""}`}</p>
+            <p className="text-sm md:text-lg">{`${showQuantityLabel ? quantityLabel : ""}`}</p>
           </div>
 
           <p>{`Data: ${order.date.toLocaleDateString("pt-BR")}`}</p>
           <p>{`Total: ${order.total}`}</p>
         </div>
-      </div>
 
-      <div className={`flex items-center gap-2 ${color}`}>
-        {icon}
-        <p className="">{`${order.status}`}</p>
-        <ChevronRight />
+        <div className={`flex items-center gap-2 ${color}`}>
+          {icon}
+          <p className="">{`${order.status}`}</p>
+          <ChevronRight />
+        </div>
       </div>
     </div>
   );
