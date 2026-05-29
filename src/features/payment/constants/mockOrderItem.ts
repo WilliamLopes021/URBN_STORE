@@ -1,4 +1,9 @@
 import type { OrderItemViewModel } from "@/application/interfaces/view-models/orderitem.viewmodel";
+import img1 from "@/assets/models/hero_image.png";
+import img2 from "@/assets/models/urbn_model_male_2.png";
+import img3 from "@/assets/models/urbn_model_male_1.png";
+import img4 from "@/assets/models/urbn_model_female_2.png";
+import img5 from "@/assets/models/image.png";
 
 export const orderItem: OrderItemViewModel[] = [
   {
@@ -35,13 +40,11 @@ export const orderItem: OrderItemViewModel[] = [
         name: "Category 1",
         description: "",
       },
-      name: "Product 1",
+      name: "Product 2",
       description: "Description 1",
       price: "1",
       stock: "Esgotado",
-      images: [
-        "https://imgs.search.brave.com/kcqfwxS2owixKi4w6VPiM20-TIlDh2F8FW2i6ztZet8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L1hp/WDJ3U2hwZjZYWTJr/V2k3cGtNczcuanBn",
-      ],
+      images: [img1],
       sizes: ["P", "M", "G"],
     },
   },
@@ -57,13 +60,11 @@ export const orderItem: OrderItemViewModel[] = [
         name: "Category 1",
         description: "",
       },
-      name: "Product 1",
+      name: "Product 3",
       description: "Description 1",
       price: "1",
       stock: "Esgotado",
-      images: [
-        "https://imgs.search.brave.com/kcqfwxS2owixKi4w6VPiM20-TIlDh2F8FW2i6ztZet8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L1hp/WDJ3U2hwZjZYWTJr/V2k3cGtNczcuanBn",
-      ],
+      images: [img2],
       sizes: ["P", "M", "G"],
     },
   },
@@ -79,13 +80,11 @@ export const orderItem: OrderItemViewModel[] = [
         name: "Category 1",
         description: "",
       },
-      name: "Product 1",
+      name: "Product 4",
       description: "Description 1",
       price: "1",
       stock: "Esgotado",
-      images: [
-        "https://imgs.search.brave.com/kcqfwxS2owixKi4w6VPiM20-TIlDh2F8FW2i6ztZet8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L1hp/WDJ3U2hwZjZYWTJr/V2k3cGtNczcuanBn",
-      ],
+      images: [img3],
       sizes: ["P", "M", "G"],
     },
   },
@@ -101,13 +100,11 @@ export const orderItem: OrderItemViewModel[] = [
         name: "Category 1",
         description: "",
       },
-      name: "Product 1",
+      name: "Product 5",
       description: "Description 1",
       price: "1",
       stock: "Esgotado",
-      images: [
-        "https://imgs.search.brave.com/kcqfwxS2owixKi4w6VPiM20-TIlDh2F8FW2i6ztZet8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L1hp/WDJ3U2hwZjZYWTJr/V2k3cGtNczcuanBn",
-      ],
+      images: [img4],
       sizes: ["P", "M", "G"],
     },
   },
@@ -123,13 +120,11 @@ export const orderItem: OrderItemViewModel[] = [
         name: "Category 1",
         description: "",
       },
-      name: "Product 1",
+      name: "Product 6",
       description: "Description 1",
       price: "1",
       stock: "Esgotado",
-      images: [
-        "https://imgs.search.brave.com/kcqfwxS2owixKi4w6VPiM20-TIlDh2F8FW2i6ztZet8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L1hp/WDJ3U2hwZjZYWTJr/V2k3cGtNczcuanBn",
-      ],
+      images: [img5],
       sizes: ["P", "M", "G"],
     },
   },
@@ -145,7 +140,7 @@ export const orderItem: OrderItemViewModel[] = [
         name: "Category 1",
         description: "",
       },
-      name: "Product 1",
+      name: "Product 7",
       description: "Description 1",
       price: "1",
       stock: "Esgotado",
@@ -157,7 +152,7 @@ export const orderItem: OrderItemViewModel[] = [
   },
   {
     id: "8",
-    quantity: 1,
+    quantity: 9,
     unitPrice: "1",
     size: "xl",
     product: {
@@ -167,7 +162,7 @@ export const orderItem: OrderItemViewModel[] = [
         name: "Category 1",
         description: "",
       },
-      name: "Product 1",
+      name: "Product 8",
       description: "Description 1",
       price: "1",
       stock: "Esgotado",
