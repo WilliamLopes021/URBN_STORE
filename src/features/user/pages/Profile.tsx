@@ -14,7 +14,6 @@ import { order } from "../constants/mockOrder";
 import type { OrderViewModel } from "@/application/interfaces/view-models/order.viewmodel";
 import { Button } from "@/shared/components/atoms/Button";
 import { NavBar } from "@/shared/components/molecules/NavBar";
-import { Footer } from "@/shared/components/molecules/Footer";
 
 export const Profile = () => {
   const data = [
@@ -96,7 +95,6 @@ export const Profile = () => {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 };
