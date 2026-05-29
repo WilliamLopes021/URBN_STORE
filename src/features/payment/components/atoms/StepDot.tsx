@@ -11,7 +11,7 @@ const stateClasses: Record<StepState, string> = {
   completed: "border-2 border-accent-blue bg-accent-blue text-text-primary",
 };
 
-const StepDot = ({ number, state }: StepDotProps) => (
+export const StepDot = ({ number, state }: StepDotProps) => (
   <div
     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-black ${stateClasses[state]}`}
   >
@@ -19,4 +19,3 @@ const StepDot = ({ number, state }: StepDotProps) => (
   </div>
 );
 
-export default StepDot;

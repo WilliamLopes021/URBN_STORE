@@ -4,7 +4,7 @@ import { Globe } from "lucide-react";
 
 export const CartHeader = () => {
   return (
-    <header className="px-4 py-6 md:text-start flex flex-col md:justify-start md:items-start">
+    <header className="px-4 py-6 md:text-start flex flex-col md:justify-start md:items-start max-w-5xl mx-auto w-full">
       <div className="text-text-primary text-3xl mb-3">
         <SubTitle>
           Seu carrinho <Globe size={20} className="text-accent-blue" />
