@@ -5,20 +5,20 @@ export const NAV_LINKS = [
   },
   {
     name: "Favoritos",
-    href: "/women",
+    href: "/favorites",
   },
 
   {
     name: "Contato",
-    href: "/contato",
+    href: "#contact",
   },
   {
     name: "Masculino",
-    href: "/masculino",
+    href: "/men",
   },
   {
     name: "Feminino",
-    href: "/feminino",
+    href: "/women",
   },
 ];
 

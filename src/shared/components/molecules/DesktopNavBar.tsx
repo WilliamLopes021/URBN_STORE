@@ -1,5 +1,5 @@
-import { NAV_LINKS, CATEGORIES_LINKS } from "@/shared/constants/navLinks";
-import { CategoryMenu } from "@/shared/components/molecules/CategoryMenu";
+import { NAV_LINKS /* CATEGORIES_LINKS */ } from "@/shared/constants/navLinks";
+// import { CategoryMenu } from "@/shared/components/molecules/CategoryMenu";
 import { Anchor } from "@/interfaces/router/Link";
 
 export const DesktopNavBar = () => {
@@ -11,17 +11,26 @@ export const DesktopNavBar = () => {
             className="transition-all duration-200 -transform-y-1 border-accent-blue"
             key={link.name}
           >
-            <Anchor
-              to={link.href}
-              className="text-text-primary font-medium tracking-widest line-clamp-2"
-            >
-              {link.name}
-            </Anchor>
+            {link.href === "#contact" ? (
+              <a
+                href={link.href}
+                className="text-text-primary font-medium tracking-widest line-clamp-2"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Anchor
+                to={link.href}
+                className="text-text-primary font-medium tracking-widest line-clamp-2"
+              >
+                {link.name}
+              </Anchor>
+            )}
           </li>
         ))}
-        {CATEGORIES_LINKS.map(({ label, links }) => (
-            <CategoryMenu key={label} sections={[{ label, links }]} />
-        ))}
+        {/* {CATEGORIES_LINKS.map(({ label, links }) => (
+          <CategoryMenu key={label} sections={[{ label, links }]} />
+        ))} */}
       </ul>
     </nav>
   );

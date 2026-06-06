@@ -6,7 +6,10 @@ import { SubTitle } from "../atoms/SubTitle";
 
 export const NewsletterSection = () => {
   return (
-    <section className="bg-surface border border-dark-gray w-full px-6 py-10 relative overflow-hidden text-text-primary">
+    <section
+      id="contact"
+      className="bg-surface border border-dark-gray w-full px-6 py-10 relative overflow-hidden text-text-primary"
+    >
       <div className="mb-4 leading-none">
         <p className="text-text-primary li font-black text-4xl italic tracking-tight">
           Join the
@@ -32,7 +35,9 @@ export const NewsletterSection = () => {
 
         <label className="flex items-center gap-2 cursor-pointer">
           <CheckBox />
-          <p className="text-white font-thin">I agree to receive URBN updates and offers.</p>
+          <p className="text-white font-thin">
+            I agree to receive URBN updates and offers.
+          </p>
         </label>
       </form>
     </section>
