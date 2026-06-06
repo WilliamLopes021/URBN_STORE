@@ -1,3 +1,5 @@
+import { ChevronDown, ChevronUp } from "lucide-react";
+
 interface OrderSummaryBarProps {
   itemCount: number;
   total: string;
@@ -31,18 +33,9 @@ export const OrderSummaryBar = ({
       <span className="text-light-gray text-xs">{itemCount} Items</span>
     </div>
 
-    <div className="ml-auto flex items-center gap-2">
+    <div className=" text-text-primary ml-auto flex items-center gap-2">
       <span className="text-accent-pink font-black text-base">{total}</span>
-      <svg
-        className={`w-4 h-4 text-light-gray transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
+      {isOpen ? <ChevronDown /> : <ChevronUp />}
     </div>
   </button>
 );
-

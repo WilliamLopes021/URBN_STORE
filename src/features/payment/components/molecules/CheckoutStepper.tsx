@@ -9,8 +9,8 @@ interface CheckoutStepperProps {
 
 const STEPS: Step[] = [
   { number: 1, label: "Information" },
-  { number: 2, label: "Shipping" },
-  { number: 3, label: "Payment" },
+  { number: 2, label: "Payment" },
+  { number: 3, label: "Confirmation" },
 ];
 
 const getStepState = (stepNumber: number, currentStep: number): StepState => {

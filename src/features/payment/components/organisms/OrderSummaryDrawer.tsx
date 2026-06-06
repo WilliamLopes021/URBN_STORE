@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { OrderSummaryBar } from "../molecules/OrderSummaryBar";
-import type { OrderItem, PriceSummary } from "../../types/checkout";
+import type { PriceSummary } from "../../types/checkout";
+import type { OrderItemViewModel } from "@/interfaces/view-models/orderitem.viewmodel";
 
 interface OrderSummaryDrawerProps {
-  items: OrderItem[];
+  items: OrderItemViewModel[];
   prices: PriceSummary;
   thumbnailSrc: string;
 }
@@ -31,20 +32,20 @@ export const OrderSummaryDrawer = ({
             {items.map((item) => (
               <div key={item.id} className="flex items-center gap-3 py-3">
                 <img
-                  src={item.imageSrc}
-                  alt={item.name}
+                  src={item.product.images[0]}
+                  alt={item.product.name}
                   className="w-14 h-14 object-cover rounded-sm shrink-0"
                 />
                 <div className="flex-1 min-w-0">
                   <p className="text-text-primary font-black text-xs uppercase tracking-wide">
-                    {item.name}
+                    {item.product.name}
                   </p>
                   <p className="text-light-gray text-xs mt-0.5">
-                    {item.variant}
+                    {item.size}
                   </p>
                 </div>
                 <span className="text-accent-pink font-black text-sm">
-                  {item.price}
+                  {item.unitPrice}
                 </span>
               </div>
             ))}
@@ -90,4 +91,3 @@ export const OrderSummaryDrawer = ({
     </div>
   );
 };
-
