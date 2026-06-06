@@ -1,1 +1,0 @@
-export type PaymentMethod = "CREDIT_CARD" | "DEBIT_CARD" | "BANK_SLIP" | "PIX";
