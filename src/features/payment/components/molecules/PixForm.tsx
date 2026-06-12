@@ -34,7 +34,7 @@ export const PixForm = () => {
           </Button>
         </div>
         <Span>Código PIX expirará em 10 minutos</Span>
-        <Button color={"primary"} type="submit" className="mt-8">
+        <Button color={"primary"} type="button" className="mt-8">
           <Anchor to="/confirm-order">Completar o Pagamento</Anchor>
         </Button>
       </div>

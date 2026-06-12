@@ -135,7 +135,7 @@ export const ShippingForm = ({ onSubmit }: ShippingFormProps) => {
           Save this information for next time
         </span>
       </label>
-      <Button color={"primary"} type="submit" className="mt-4">
+      <Button color={"primary"} type="button" className="mt-4">
         <Anchor to="/confirm-payment">Continuar para Pagamento</Anchor>
       </Button>
     </form>

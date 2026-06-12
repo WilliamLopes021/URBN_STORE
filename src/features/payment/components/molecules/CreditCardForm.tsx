@@ -37,7 +37,7 @@ export const CreditCardForm = () => {
         />
       </div>
 
-      <Button color={"primary"} type="submit" className="mt-4">
+      <Button color={"primary"} type="button" className="mt-4">
         <Anchor to="/confirm-order">Completar o Pagamento</Anchor>
       </Button>
     </div>
