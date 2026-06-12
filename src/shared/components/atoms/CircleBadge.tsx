@@ -5,13 +5,12 @@ export const CircleBadge = ({
 }: {
   children: React.ReactNode;
   textColor?: "text-primary" | "dark-gray";
-  props?: React.ButtonHTMLAttributes<HTMLButtonElement>;
-}) => {
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   const textColorClassName = `text-${textColor}`;
   return (
     <button
       {...props}
-      className={`p-2 rounded-full border border-dark-gray ${textColorClassName}`}
+      className={`p-2 rounded-full border border-dark-gray cursor-pointer hover:scale-110 transition-all duration-300 ${textColorClassName}`}
     >
       {children}
     </button>

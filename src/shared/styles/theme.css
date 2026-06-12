@@ -3,10 +3,12 @@
 @theme {
   --color-primary: #1a1a1a;
   --color-text-primary: #ffffff;
+  --color-text-secondary: #888888;
   --color-accent-pink: #fc1474;
   --color-accent-blue: #295fee;
   --color-dark-gray: #333333;
   --color-light-gray: #cccccc;
+  --color-background: #1a1a1a;
 
   --font-base: "Montserrat", sans-serif;
 
@@ -61,4 +63,17 @@
   ========================= */
   --shadow-glow-pink: 0 0 10px var(--color-accent-pink);
   --shadow-glow-blue: 0 0 10px var(--color-accent-blue);
+}
+
+
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
