@@ -34,7 +34,7 @@ export const Login = () => {
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="senha"
+            placeholder="****"
             leftIcon={<Lock size={15} className="text-light-gray" />}
             rightIcon={
               <button
