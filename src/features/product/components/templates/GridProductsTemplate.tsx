@@ -1,56 +1,28 @@
-import { Anchor } from "@/interfaces/router/Link";
-import { Card } from "@/shared/components/atoms/Card";
+import type { ProductViewModel } from "@/interfaces/view-models/product.viewmodel";
+import { SortSelector } from "../molecules/SortSelector";
+import { ProductCard } from "../molecules/ProductCard";
 
-export const GridProductTemplate = ({ products, label }) => {
+export const GridProductTemplate = ({
+  products,
+  label,
+}: {
+  products: ProductViewModel[];
+  label: string;
+}) => {
   return (
     <>
-      <div className="text-text-primary flex justify-between px-10 py-4">
-        <h2 className="text-3xl uppercase tracking-wider font-bold">
+      <div className="text-text-primary flex lg:flex-row md:justify-between flex-col gap-5 px-10 py-4">
+        <h2 className="md:text-3xl text-xl uppercase tracking-wider font-bold">
           {label}{" "}
           <span className="text-accent-blue text-xl">
             ({products.length} Itens)
           </span>
         </h2>
-        <div className="flex items-center gap-2 text-sm">
-          <p className="uppercase">Ordenar por:</p>
-          <select
-            name=""
-            id=""
-            className="border border-border px-2 bg-surface cursor-pointer text-text-primary uppercase tracking-widest font-light"
-          >
-            <option value="" className="text-sm font-light">
-              Nome
-            </option>
-            <option value="" className="text-sm font-light">
-              Preço
-            </option>
-            <option value="" className="text-sm font-light">
-              Data
-            </option>
-          </select>
-        </div>
+        <SortSelector />
       </div>
-      <main className="flex flex-wrap px-10 py-4 gap-2 bg-surface">
+      <main className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 px-6 sm:px-10 py-4 bg-surface">
         {products.map((product) => (
-          <Card key={product.id}>
-            <div className="w-[240px] h-[300px]">
-              <img
-                className="w-full h-full object-center"
-                src={product.images[0]}
-                alt={product.name}
-              />
-            </div>
-            <div className="text-text-primary uppercase py-4 w-full px-2">
-              <p>{product.name}</p>
-              <p className="text-accent-blue">{product.price}</p>
-
-              <Anchor to={`/product/${product.id}`}>
-                <button className="bg-accent py-2 px-6 rounded-sm my-2 hover:bg-accent/90 hover:cursor-pointer transition-all duration-200">
-                  Ver Produto
-                </button>
-              </Anchor>
-            </div>
-          </Card>
+          <ProductCard key={product.id} product={product} />
         ))}
       </main>
     </>

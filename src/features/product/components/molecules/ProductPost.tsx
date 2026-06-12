@@ -11,7 +11,7 @@ export const ProductPost = ({
 } & React.ComponentProps<"div">) => {
   return (
     <Card color="black" {...props}>
-      <div className="max-w-[400px] relative rounded-lg overflow-hidden">
+      <div className="max-w-[300px] relative rounded-lg overflow-hidden">
         <img src={image} alt={alt} className="w-full h-full object-cover" />
         <SquaresUnite
           className={`text-text-primary absolute top-2 right-2 z-10`}

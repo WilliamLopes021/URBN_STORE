@@ -44,7 +44,7 @@ export const Home = () => {
           <div className="flex flex-wrap justify-center gap-5">
             {mockMedia.map((media) => {
               return (
-                <div key={`${media.id}-post-container`}>
+                <div key={`${media.id}`}>
                   <ProductPost
                     image={media.thumb}
                     alt={media.alt}

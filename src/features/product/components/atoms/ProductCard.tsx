@@ -1,16 +1,27 @@
-import { Plus } from "lucide-react";
+import { Heart } from "lucide-react";
 import { CircleBadge } from "@/shared/components/atoms/CircleBadge";
 import { Card } from "@/shared/components/atoms/Card";
 
 export const ProductCard = ({
+  isFavorite,
+  handleAddFavorite,
   text,
   price,
   image,
 }: {
+  id: string;
   text: string;
   price: string;
   image: string;
+  isFavorite: boolean;
+  handleAddFavorite: () => void;
 }) => {
+  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    handleAddFavorite();
+  };
+
   return (
     <Card>
       <div className="w-50 h-full overflow-hidden">
@@ -21,8 +32,8 @@ export const ProductCard = ({
           <span className="text-text-primary uppercase">{text}</span>
           <span className="text-accent-blue">{price}</span>
         </div>
-        <CircleBadge>
-          <Plus />
+        <CircleBadge onClick={handleFavorite}>
+          {isFavorite ? <Heart className="fill-accent" /> : <Heart />}
         </CircleBadge>
       </div>
     </Card>
