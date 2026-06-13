@@ -1,9 +1,10 @@
 import { Anchor } from "@/interfaces/router/Link";
 import { StarRating } from "../atoms/StarRating";
 import { ReviewCard } from "../molecules/ReviewCard";
-import type { Review } from "@/application/interfaces/view-models/review.model";
+import type { Review } from "@/interfaces/view-models/review.model";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { Span } from "@/shared/components/atoms/Span";
 
 type CustomerReviewsProps = {
   reviews: Review[];
@@ -31,7 +32,6 @@ export const CustomerReviews = ({
   }
 
   const next = () => {
-    console.log(pages);
     setCurrentReviewIndex((prev) => {
       if (prev === pages.length - 1) return prev;
       return prev + 1;
@@ -52,17 +52,19 @@ export const CustomerReviews = ({
         <h2 className="text-text-primary font-black text-base uppercase tracking-widest">
           Customer Reviews
         </h2>
-        <Anchor
-          to={seeAllHref}
-          className="text-accent-blue text-xs font-semibold hover:underline transition-all"
-        >
-          See all reviews
-        </Anchor>
+        {reviews.length > 0 && (
+          <Anchor
+            to={seeAllHref}
+            className="text-accent-blue text-xs font-semibold hover:underline transition-all"
+          >
+            See all reviews
+          </Anchor>
+        )}
       </div>
 
       <div className="flex items-center gap-3 mb-6">
         <span className="text-text-primary font-black text-4xl leading-none">
-          {averageRating.toFixed(1)}
+          {averageRating ? averageRating.toFixed(1) : "0.0"}
         </span>
         <div className="flex flex-col gap-1">
           <StarRating rating={averageRating} size={18} />
@@ -71,19 +73,25 @@ export const CustomerReviews = ({
       </div>
 
       <div>
-        {pages[currentReviewIndex].map((review) => (
-          <ReviewCard key={review.id} review={review} />
-        ))}
-        <div className="flex items-center gap-10 mt-5 w-full justify-end text-text-primary">
-          <ChevronLeft
-            className="cursor-pointer hover:bg-accent-blue/20 transition-colors duration-200 rounded-full p-1"
-            onClick={() => prev()}
-          />
-          <ChevronRight
-            className="cursor-pointer hover:bg-accent-blue/20 transition-colors duration-200 rounded-full p-1"
-            onClick={() => next()}
-          />
-        </div>
+        {reviews.length > 0 ? (
+          pages[currentReviewIndex]?.map((review) => (
+            <ReviewCard key={review.id} review={review} />
+          ))
+        ) : (
+          <Span>Sem avaliações</Span>
+        )}
+        {reviews.length > 0 && (
+          <div className="flex items-center gap-10 mt-5 w-full justify-end text-text-primary">
+            <ChevronLeft
+              className="cursor-pointer hover:bg-accent-blue/20 transition-colors duration-200 rounded-full p-1"
+              onClick={() => prev()}
+            />
+            <ChevronRight
+              className="cursor-pointer hover:bg-accent-blue/20 transition-colors duration-200 rounded-full p-1"
+              onClick={() => next()}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

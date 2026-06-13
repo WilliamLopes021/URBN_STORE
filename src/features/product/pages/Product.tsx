@@ -9,11 +9,15 @@ import { ProductCard } from "../components/atoms/ProductCard";
 import { CustomerReviews } from "../components/organism/ReviewSection";
 import { reviews } from "../constants/mockReviews";
 import { averageRate } from "../services/averageRate";
+import { useFavoriteItens } from "../hooks/useFavoriteItens";
+import { Anchor } from "@/interfaces/router/Link";
 
 export const Product = () => {
   const { id } = useRouterParams();
   const product = products.find((product) => product.id === id);
   const { averageRating, totalCount } = averageRate(reviews, id);
+  const productReviews = reviews.filter((review) => review.productId === id);
+  const { favorites, handleFavoriteProduct } = useFavoriteItens();
 
   return (
     <>
@@ -26,6 +30,7 @@ export const Product = () => {
         sizes={product.sizes}
         images={product.images}
         category={product.category}
+        id={product.id}
       />
       <section className="p-6 border-t border-dark-gray text-text-primary max-w-[1000px] mx-auto w-full">
         <header className="text-2xl">
@@ -33,18 +38,22 @@ export const Product = () => {
         </header>
         <div className="flex mt-4 gap-3 overflow-y-hidden">
           {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              image={product.images[0]}
-              text={product.name}
-              price={product.price}
-            />
+            <Anchor to={`/product/${product.id}`} key={`${product.id}-similar`}>
+              <ProductCard
+                handleAddFavorite={() => handleFavoriteProduct(product.id)}
+                isFavorite={favorites.includes(product.id)}
+                id={product.id}
+                image={product.images[0]}
+                text={product.name}
+                price={product.price}
+              />
+            </Anchor>
           ))}
         </div>
       </section>
       <section className="max-w-[1000px] mx-auto w-full border-t border-dark-gray">
         <CustomerReviews
-          reviews={reviews}
+          reviews={productReviews}
           averageRating={averageRating}
           totalCount={totalCount}
         />

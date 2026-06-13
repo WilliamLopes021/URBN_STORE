@@ -6,7 +6,8 @@ import { PriceDisplay } from "../components/atoms/PriceDisplay";
 import { Button } from "@/shared/components/atoms/Button";
 import { useRouter } from "@/interfaces/router/useRouter";
 import { useState } from "react";
-import type { OrderItemViewModel } from "@/application/interfaces/view-models/orderitem.viewmodel";
+import type { OrderItemViewModel } from "@/interfaces/view-models/orderitem.viewmodel";
+import { EmptyCartWarning } from "../components/atoms/EmptyCardWarning";
 
 export const Cart = () => {
   const router = useRouter();
@@ -21,12 +22,13 @@ export const Cart = () => {
       items.length = 0;
     }
   }
-  console.log(groupedOrders);
 
   return (
     <>
       <NavBar />
       <CartHeader />
+      {orderItem.length === 0 && <EmptyCartWarning />}
+      
       <main className="max-w-[1000px] mx-auto w-full px-5 flex flex-col gap-8 py-3">
         {groupedOrders[visibleOrders].map((item) => (
           <OrderItemCard key={item.id} orderItem={item} />
