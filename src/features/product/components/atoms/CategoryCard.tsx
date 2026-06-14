@@ -1,5 +1,5 @@
 import { Anchor } from "@/interfaces/router/Link";
-import type { CategoryViewModel } from "@/application/interfaces/view-models/category.viewmodel";
+import type { CategoryViewModel } from "@/interfaces/view-models/category.viewmodel";
 import { ArrowRight } from "lucide-react";
 
 export const CategoryCard = ({

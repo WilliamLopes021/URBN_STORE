@@ -1,4 +1,4 @@
-import type { OrderItemViewModel } from "@/application/interfaces/view-models/orderitem.viewmodel";
+import type { OrderItemViewModel } from "@/interfaces/view-models/orderitem.viewmodel";
 import { QuantityController } from "@/features/payment/components/atoms/QuantityController";
 import { TrashIcon } from "lucide-react";
 

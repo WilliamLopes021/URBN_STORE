@@ -1,4 +1,4 @@
-import type { OrderViewModel } from "@/application/interfaces/view-models/order.viewmodel";
+import type { OrderViewModel } from "@/interfaces/view-models/order.viewmodel";
 import { ChevronRight, Loader, Package, Check, X } from "lucide-react";
 
 export const OrderCard = ({ order }: { order: OrderViewModel }) => {
@@ -7,7 +7,8 @@ export const OrderCard = ({ order }: { order: OrderViewModel }) => {
     SHIPPED: { color: "text-accent-blue", icon: <Package size={20} /> },
     DELIVERED: { color: "text-accent-pink", icon: <Check size={20} /> },
     CANCELLED: { color: "text-red-400", icon: <X size={20} /> },
-  };
+    CREATED: { color: "text-yellow-400", icon: <Loader size={20} /> },
+  } as const;
 
   const showQuantityLabel = order.products.length - 1 > 0;
   const quantityLabel = `+ ${order.products.length - 1} produto(s)`;

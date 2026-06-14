@@ -1,4 +1,4 @@
-import type { MediaViewModel } from "@/application/interfaces/view-models/media.viewmodel";
+import type { MediaViewModel } from "@/interfaces/view-models/media.viewmodel";
 import cap from "@/assets/products/urbn_product_cap.png";
 import shoes from "@/assets/products/urbn_product_joggers.png";
 import merchan from "@/assets/videos/template.mp4";

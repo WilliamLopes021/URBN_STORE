@@ -1,5 +1,5 @@
 import { Avatar } from "../atoms/Avatar";
-import type { UserViewModel } from "@/application/interfaces/view-models/user.viewmodel";
+import type { UserViewModel } from "@/interfaces/view-models/user.viewmodel";
 import { SquarePen } from "lucide-react";
 
 export const ProfileHeader = ({

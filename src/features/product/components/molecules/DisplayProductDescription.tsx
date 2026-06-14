@@ -7,14 +7,19 @@ import type { ProductViewModel } from "@/interfaces/view-models/product.viewmode
 import { useFavoriteItens } from "../../hooks/useFavoriteItens";
 import { useCart } from "../../hooks/useCart";
 
+type ProductDisplayDescriptionProps = Omit<
+  ProductViewModel,
+  "stock" | "images"
+>;
+
 export const DisplayProductDescription = ({
   id,
-  name,
   category,
+  name,
+  description = "lorem ipsum",
   price,
-  description,
   sizes,
-}: Partial<ProductViewModel>) => {
+}: ProductDisplayDescriptionProps) => {
   const { handleFavoriteProduct, favorites } = useFavoriteItens();
   const { cart, handleAddToCart, handleRemoveFromCart } = useCart();
   const isFavorite = favorites.includes(id);

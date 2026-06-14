@@ -11,7 +11,7 @@ import {
 import { user } from "../constants/mockUser";
 import { OrderCard } from "../components/atoms/OrderCard";
 import { order } from "../constants/mockOrder";
-import type { OrderViewModel } from "@/application/interfaces/view-models/order.viewmodel";
+import type { OrderViewModel } from "@/interfaces/view-models/order.viewmodel";
 import { Button } from "@/shared/components/atoms/Button";
 import { NavBar } from "@/shared/components/molecules/NavBar";
 

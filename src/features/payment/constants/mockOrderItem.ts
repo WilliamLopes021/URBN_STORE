@@ -1,4 +1,4 @@
-import type { OrderItemViewModel } from "@/application/interfaces/view-models/orderitem.viewmodel";
+import type { OrderItemViewModel } from "@/interfaces/view-models/orderitem.viewmodel";
 import img1 from "@/assets/models/hero_image.png";
 import img2 from "@/assets/models/urbn_model_male_2.png";
 import img3 from "@/assets/models/urbn_model_male_1.png";

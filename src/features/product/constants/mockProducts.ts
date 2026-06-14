@@ -1,4 +1,4 @@
-import type { ProductViewModel } from "@/application/interfaces/view-models/product.viewmodel";
+import type { ProductViewModel } from "@/interfaces/view-models/product.viewmodel";
 import img1 from "@/assets/models/image.png";
 import img2 from "@/assets/models/urbn_model_female_2.png";
 import img3 from "@/assets/models/urbn_model_male_1.png";

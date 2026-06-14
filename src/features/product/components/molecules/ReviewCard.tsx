@@ -1,5 +1,5 @@
 import { StarRating } from "../atoms/StarRating";
-import type { Review } from "@/application/interfaces/view-models/review.model";
+import type { Review } from "@/interfaces/view-models/review.model";
 
 type ReviewCardProps = {
   review: Review;

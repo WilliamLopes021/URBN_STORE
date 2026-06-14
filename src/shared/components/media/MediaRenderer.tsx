@@ -1,4 +1,4 @@
-import type { MediaViewModel } from "@/application/interfaces/view-models/media.viewmodel";
+import type { MediaViewModel } from "@/interfaces/view-models/media.viewmodel";
 import { ImageRenderer } from "./ImageRenderer";
 import { VideoRenderer } from "./VideoRenderer";
 import { EmbedRenderer } from "./EmbedRenderer";
