@@ -1,7 +1,7 @@
 # URBN STORE
 
 <p align="center">
-  <img alt="URBN STORE Logo/Banner" src="https://via.placeholder.com/800x200?text=URBN+STORE" />
+  <img alt="URBN STORE Logo/Banner" src="./src/assets/icons/urbn_logo_asset (1).png" />
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 O **URBN STORE** é uma aplicação completa de comércio eletrônico, desenvolvida para proporcionar a melhor experiência de usuário possível. Com um design arrojado e focado em conversão, o projeto utiliza as melhores práticas do mercado, como **Feature-Sliced Design** (FSD) para garantir uma arquitetura escalável e de fácil manutenção.
 
-> 🚧 **[🔗 Acesse a demonstração ao vivo aqui! (Coloque seu link do deploy aqui)]()** 🚧
+> **[🔗 Acesse a demonstração ao vivo!](https://urbn-store-indol.vercel.app/)**
 
 ---
 
