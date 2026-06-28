@@ -1,6 +1,7 @@
 import type { ProductViewModel } from "@/interfaces/view-models/product.viewmodel";
 import { SortSelector } from "../molecules/SortSelector";
 import { ProductCard } from "../molecules/ProductCard";
+import { EmptyWarning } from "@/features/payment/components/atoms/EmptyWarning";
 
 export const GridProductTemplate = ({
   products,
@@ -20,6 +21,14 @@ export const GridProductTemplate = ({
         </h2>
         <SortSelector />
       </div>
+      {products.length === 0 && (
+        <EmptyWarning
+          text="Nenhum produto encontrado"
+          description="Nenhum produto foi encontrado com os filtros aplicados."
+          buttonText="Continuar Comprando"
+        />
+      )}
+
       <main className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 px-6 sm:px-10 py-4 bg-surface">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

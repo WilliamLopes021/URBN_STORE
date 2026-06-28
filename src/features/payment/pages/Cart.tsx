@@ -7,7 +7,7 @@ import { Button } from "@/shared/components/atoms/Button";
 import { useRouter } from "@/interfaces/router/useRouter";
 import { useState } from "react";
 import type { OrderItemViewModel } from "@/interfaces/view-models/orderitem.viewmodel";
-import { EmptyCartWarning } from "../components/atoms/EmptyCardWarning";
+import { EmptyWarning } from "../components/atoms/EmptyWarning";
 
 export const Cart = () => {
   const router = useRouter();
@@ -27,8 +27,14 @@ export const Cart = () => {
     <>
       <NavBar />
       <CartHeader />
-      {orderItem.length === 0 && <EmptyCartWarning />}
-      
+      {orderItem.length === 0 && (
+        <EmptyWarning
+          text="Sua sacola está vazia"
+          description="Adicione produtos para começar a comprar. Navegue pelas categorias para encontrar o que você precisa."
+          buttonText="Continuar Comprando"
+        />
+      )}
+
       <main className="max-w-[1000px] mx-auto w-full px-5 flex flex-col gap-8 py-3">
         {groupedOrders[visibleOrders].map((item) => (
           <OrderItemCard key={item.id} orderItem={item} />
