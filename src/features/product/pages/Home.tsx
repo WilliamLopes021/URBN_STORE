@@ -32,7 +32,6 @@ export const Home = () => {
       <NavBar />
       <main>
         <HeroBanner />
-
         <Drops drops={products} />
         <CategoryGrid />
         <section className="px-8 ">

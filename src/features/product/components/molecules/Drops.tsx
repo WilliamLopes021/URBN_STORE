@@ -5,21 +5,26 @@ import type { ProductViewModel } from "@/interfaces/view-models/product.viewmode
 import { Anchor } from "@/interfaces/router/Link";
 import { SubTitle } from "@/shared/components/atoms/SubTitle";
 import { useFavoriteItens } from "../../hooks/useFavoriteItens";
+import { useRouter } from "@/interfaces/router/useRouter";
 
 export const Drops = ({ drops }: { drops: ProductViewModel[] }) => {
   const { handleFavoriteProduct, favorites } = useFavoriteItens();
+  const navigate = useRouter();
 
   return (
-    <section className="scrollbar-thumb-dark-gray scrollbar-track-transparent ">
+    <section
+      className="scrollbar-thumb-dark-gray scrollbar-track-transparent"
+      id="drops"
+    >
       <header className="text-text-primary text-xl flex justify-between px-8 my-5 ">
         <SubTitle>Lançamentos</SubTitle>
-        <div>
+        <div className="cursor-pointer" onClick={() => navigate("/drops")}>
           <Span>
             VIEW ALL <ArrowRight />
           </Span>
         </div>
       </header>
-      <div className="w-full flex overflow-hidden gap-3 px-8 py-3">
+      <div className="w-full flex overflow-hidden gap-3 px-8 py-3 overflow-x-auto custom-scrollbar-x">
         {drops.map((product) => {
           return (
             <Anchor

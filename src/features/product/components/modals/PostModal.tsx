@@ -1,7 +1,7 @@
 import type { MediaViewModel } from "@/interfaces/view-models/media.viewmodel";
 import { MediaRenderer } from "@/shared/components/media/MediaRenderer";
 import { Ellipsis, Heart, Share2 } from "lucide-react";
-import logo from "@/assets/icons/urbn_icon_skull_neon.png";
+import logo from "@/assets/icons/urbn_icon_lightning_neon.png";
 import { Span } from "@/shared/components/atoms/Span";
 import { ModalBase } from "@/shared/components/modal/ModalBase";
 

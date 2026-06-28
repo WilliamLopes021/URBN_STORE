@@ -6,6 +6,8 @@ export const EmbedRenderer = ({ media }: { media: MediaViewModel }) => {
       src={media.url}
       title={media.alt || media.id}
       className="w-full h-full object-cover"
+      loading="lazy"
+      
     />
   );
 };

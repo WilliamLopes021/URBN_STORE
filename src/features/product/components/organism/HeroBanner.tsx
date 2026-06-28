@@ -3,8 +3,11 @@ import heroImage from "@/assets/models/hero_image.png";
 import { Globe } from "lucide-react";
 import { Span } from "@/shared/components/atoms/Span";
 import { SubTitle } from "@/shared/components/atoms/SubTitle";
+import { useRouter } from "@/interfaces/router/useRouter";
 
 export const HeroBanner = () => {
+  const navigate = useRouter();
+
   return (
     <section
       className={
@@ -39,6 +42,7 @@ export const HeroBanner = () => {
           <Button
             color="primary"
             className="text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-2.5"
+            onClick={() => navigate("/shop")}
           >
             Shop Now ↗
           </Button>
@@ -46,7 +50,7 @@ export const HeroBanner = () => {
             color="secondary"
             className="text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-2.5 border border-text-primary/30 hover:border-text-primary/60"
           >
-            Explore Drops
+            <a href="#drops">Explore Drops</a>
           </Button>
         </div>
       </div>

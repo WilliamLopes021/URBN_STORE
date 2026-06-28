@@ -1,5 +1,6 @@
 import { Anchor } from "@/interfaces/router/Link";
 import type { ProductViewModel } from "@/interfaces/view-models/product.viewmodel";
+import { CTAButton } from "@/shared/components/atoms/CTAButton";
 import { ShoppingBag } from "lucide-react";
 
 interface ProductCardProps {
@@ -12,7 +13,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Anchor to={`/product/${product.id}`} className="group block w-full">
       <div className="relative overflow-hidden rounded-lg border border-border bg-surface transition-all duration-300 hover:border-accent-blue/40 hover:shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
-
         {/* Imagem */}
         <div className="relative w-full aspect-3/4 overflow-hidden bg-card-bg">
           <img
@@ -22,12 +22,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           />
 
           {/* Overlay no hover */}
-          <div className="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span className="flex items-center gap-2 bg-accent text-text-primary text-xs uppercase tracking-widest font-semibold px-5 py-2.5 rounded-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-              <ShoppingBag className="w-4 h-4" />
-              Ver Produto
-            </span>
-          </div>
+          <CTAButton>
+            <ShoppingBag className="w-4 h-4" />
+            Ver Produto
+          </CTAButton>
 
           {/* Badge de estoque */}
           {outOfStock && (

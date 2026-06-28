@@ -28,7 +28,7 @@ export const mockMedia: MediaViewModel[] = [
   {
     id: "4",
     type: "embed",
-    url: "https://www.youtube.com/watch?v=HT5POUImqis&list=RDHT5POUImqis&start_radio=1",
+    url: "https://www.youtube.com/embed/qiEDAyBb-yM",
     alt: "Product Embed",
     thumb: shoes,
   },

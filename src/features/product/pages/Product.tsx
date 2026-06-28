@@ -39,7 +39,7 @@ export const Product = () => {
         <header className="text-2xl">
           <SubTitle>Produtos similares</SubTitle>
         </header>
-        <div className="flex mt-4 gap-3 overflow-y-hidden">
+        <div className="flex mt-4 gap-3 overflow-y-hidden custom-scrollbar-x">
           {products.map((product) => (
             <Anchor to={`/product/${product.id}`} key={`${product.id}-similar`}>
               <ProductCard

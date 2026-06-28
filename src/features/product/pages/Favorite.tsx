@@ -7,7 +7,7 @@ export const Favorite = () => {
   return (
     <>
       <NavBar />
-      <GridProductTemplate products={products} label={'Seus Favoritos'}/>
+      <GridProductTemplate products={products} label={"Seus Favoritos"} />
       <Footer />
     </>
   );

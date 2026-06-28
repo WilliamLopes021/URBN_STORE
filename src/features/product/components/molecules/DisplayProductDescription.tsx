@@ -5,7 +5,7 @@ import { Button } from "@/shared/components/atoms/Button";
 import { Accordion } from "@/shared/components/molecules/Accordion";
 import type { ProductViewModel } from "@/interfaces/view-models/product.viewmodel";
 import { useFavoriteItens } from "../../hooks/useFavoriteItens";
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "../../../../shared/hooks/useCart";
 
 type ProductDisplayDescriptionProps = Omit<
   ProductViewModel,
@@ -23,7 +23,7 @@ export const DisplayProductDescription = ({
   const { handleFavoriteProduct, favorites } = useFavoriteItens();
   const { cart, handleAddToCart, handleRemoveFromCart } = useCart();
   const isFavorite = favorites.includes(id);
-  const isCart = cart.includes(id);
+  const isCart = cart.has(id);
 
   return (
     <section className="max-w-[1000px] mx-auto w-full">
@@ -56,7 +56,10 @@ export const DisplayProductDescription = ({
             color="primary"
             className="w-full"
             onClick={() => {
-              return isCart ? handleRemoveFromCart(id) : handleAddToCart(id);
+              const orderItem = cart.get(id);
+              return isCart
+                ? handleRemoveFromCart(id)
+                : handleAddToCart(orderItem);
             }}
           >
             {isCart ? "Remover do carrinho" : "Adicionar ao carrinho"}

@@ -1,34 +1,31 @@
 import type { CategoryViewModel } from "@/interfaces/view-models/category.viewmodel";
-import img from "@/assets/products/urbn_product_hoodie_black.png";
+import pinkCap from "@/assets/products/pink_cap.png";
+import blueCap from "@/assets/products/blue_cap.png";
+import shockCap from "@/assets/products/shock_cap.png";
 import crown from "@/assets/icons/urbn_crown_icon.png";
+import crown2 from "@/assets/icons/urbn_icon_crown_neon.png";
+import lightning from "@/assets/icons/urbn_icon_lightning_neon.png";
 
 export const categories: CategoryViewModel[] = [
   {
     id: "1",
-    name: "Blusas Masculinas",
+    name: "Conjunto Chaos",
     description: "Descrição do produto 1",
-    image: img,
-    icon: crown,
+    image: pinkCap,
+    icon: crown2,
   },
   {
     id: "2",
-    name: "Moletons Masculinas",
+    name: "Conjunto Gelo",
     description: "Descrição do produto 2",
-    image: img,
+    image: blueCap,
     icon: crown,
   },
   {
     id: "3",
     name: "Calças Femininas",
     description: "Descrição do produto 3",
-    image: img,
-    icon: crown,
-  },
-  {
-    id: "4",
-    name: "Bonés",
-    description: "Descrição do produto 4",
-    image: img,
-    icon: crown,
+    image: shockCap,
+    icon: lightning,
   },
 ];
