@@ -1,7 +1,12 @@
 import { useParams } from "react-router";
+import { PresetDisplay } from "../components/templates/PresetDisplay";
 
 export const Category = () => {
-  const id = useParams();
+  const id = useParams<string>();
 
-  return <p>{id}</p>;
+  return (
+   <PresetDisplay image="">
+
+   </PresetDisplay> 
+  )
 };
