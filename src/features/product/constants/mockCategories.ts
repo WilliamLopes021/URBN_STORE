@@ -23,7 +23,7 @@ export const categories: CategoryViewModel[] = [
   },
   {
     id: "3",
-    name: "Calças Femininas",
+    name: "Conjunto Caos",
     description: "Descrição do produto 3",
     image: shockCap,
     icon: lightning,
