@@ -24,8 +24,8 @@ export const ProductCard = ({
 
   return (
     <Card>
-      <div className="w-50 h-full overflow-hidden">
-        <img src={image} alt={text} className="w-full h-full object-center" />
+      <div className="w-50 h-full overflow-hidden p-5">
+        <img src={image} alt={text} className="w-full h-full object-center object-cover" />
       </div>
       <div className="flex items-center justify-between bg-surface/50 absolute bottom-0 left-0 right-0 rounded-lg py-3 px-4 backdrop-blur-[1px]">
         <div className="flex flex-col">

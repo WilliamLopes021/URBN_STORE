@@ -1,6 +1,6 @@
 import { Anchor } from "@/interfaces/router/Link";
 import type { ProductViewModel } from "@/interfaces/view-models/product.viewmodel";
-import { CTAButton } from "@/shared/components/atoms/CTAButton";
+import { CTAOverlay } from "@/shared/components/atoms/CTAOverlay";
 import { ShoppingBag } from "lucide-react";
 
 interface ProductCardProps {
@@ -22,10 +22,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           />
 
           {/* Overlay no hover */}
-          <CTAButton>
+          <CTAOverlay>
             <ShoppingBag className="w-4 h-4" />
             Ver Produto
-          </CTAButton>
+          </CTAOverlay>
 
           {/* Badge de estoque */}
           {outOfStock && (
