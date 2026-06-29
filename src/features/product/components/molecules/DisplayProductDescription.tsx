@@ -59,7 +59,7 @@ export const DisplayProductDescription = ({
               const orderItem = cart.get(id);
               return isCart
                 ? handleRemoveFromCart(id)
-                : handleAddToCart(orderItem);
+                : handleAddToCart(orderItem!);
             }}
           >
             {isCart ? "Remover do carrinho" : "Adicionar ao carrinho"}

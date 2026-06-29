@@ -13,7 +13,7 @@ export const SearchModal = ({ onClose }: SearchModalProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = () => {
-    const inputValue = inputRef.current?.value;
+    const inputValue = inputRef.current?.value || "";
     if (inputValue.length >= 2) {
       setResults(
         products.filter((product) =>
