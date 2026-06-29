@@ -1,21 +1,28 @@
-import { Search, X, ArrowRight, TrendingUp } from "lucide-react";
+import { Search, X, ArrowRight } from "lucide-react";
 import type { ProductViewModel } from "@/interfaces/view-models/product.viewmodel";
 import { Anchor } from "@/interfaces/router/Link";
+import { useRef, useState } from "react";
+import { products } from "@/features/product/constants/mockProducts";
 
 interface SearchModalProps {
   onClose: () => void;
-  results?: ProductViewModel[];
 }
 
-const TRENDING_SEARCHES = [
-  "Moletom URBN",
-  "Camiseta Oversized",
-  "Calça Cargo",
-  "Boné Streetwear",
-  "Jaqueta Bomber",
-];
+export const SearchModal = ({ onClose }: SearchModalProps) => {
+  const [results, setResults] = useState<ProductViewModel[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-export const SearchModal = ({ onClose, results = [] }: SearchModalProps) => {
+  const handleChange = () => {
+    const inputValue = inputRef.current?.value;
+    if (inputValue.length >= 2) {
+      setResults(
+        products.filter((product) =>
+          product.name.toLowerCase().includes(inputValue.toLowerCase()),
+        ),
+      );
+    }
+  };
+
   const hasResults = results.length > 0;
 
   return (
@@ -34,6 +41,8 @@ export const SearchModal = ({ onClose, results = [] }: SearchModalProps) => {
           <Search className="w-5 h-5 text-text-secondary shrink-0" />
 
           <input
+            ref={inputRef}
+            onChange={handleChange}
             autoFocus
             type="text"
             placeholder="O que você está procurando?"
@@ -55,28 +64,6 @@ export const SearchModal = ({ onClose, results = [] }: SearchModalProps) => {
 
         {/* Corpo do modal */}
         <div className="px-6 sm:px-10 py-6 max-h-[70vh] overflow-y-auto">
-
-          {/* Estado vazio — mostra pesquisas populares */}
-          {!hasResults && (
-            <div className="flex flex-col gap-4">
-              <p className="flex items-center gap-2 text-xs text-text-secondary uppercase tracking-widest font-medium">
-                <TrendingUp className="w-4 h-4 text-accent-blue" />
-                Em alta agora
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {TRENDING_SEARCHES.map((term) => (
-                  <li key={term}>
-                    <button className="group flex items-center gap-1.5 text-sm text-text-primary bg-surface border border-border px-3 py-1.5 rounded-sm hover:border-accent-blue/50 hover:shadow-[0_0_8px_rgba(var(--color-accent-blue),0.15)] transition-all duration-200 cursor-pointer">
-                      {term}
-                      <ArrowRight className="w-3 h-3 text-text-secondary group-hover:text-accent-blue group-hover:translate-x-0.5 transition-all duration-200" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Resultados */}
           {hasResults && (
             <div className="flex flex-col gap-3">
               <p className="text-xs text-text-secondary uppercase tracking-widest font-medium">

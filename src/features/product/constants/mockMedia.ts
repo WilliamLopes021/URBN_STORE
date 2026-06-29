@@ -1,5 +1,7 @@
 import type { MediaViewModel } from "@/interfaces/view-models/media.viewmodel";
 import cap from "@/assets/products/urbn_product_cap.png";
+import hoodie from "@/assets/products/shock_hoodie.png";
+import sneaker from "@/assets/products/sneaker.png";
 import shoes from "@/assets/products/urbn_product_joggers.png";
 import merchan from "@/assets/videos/template.mp4";
 
@@ -21,7 +23,7 @@ export const mockMedia: MediaViewModel[] = [
   {
     id: "3",
     type: "video",
-    url: merchan,
+    url: hoodie,
     alt: "Product Video",
     thumb: cap,
   },
@@ -30,6 +32,6 @@ export const mockMedia: MediaViewModel[] = [
     type: "embed",
     url: "https://www.youtube.com/embed/qiEDAyBb-yM",
     alt: "Product Embed",
-    thumb: shoes,
+    thumb: sneaker,
   },
 ];
